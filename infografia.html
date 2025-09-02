@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Claves para un Estilo de Vida Saludable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .ergonomic-diagram {
+            position: relative;
+            max-width: 500px;
+            margin: auto;
+        }
+        .ergonomic-point {
+            position: absolute;
+            background-color: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+        .ergonomic-line {
+            position: absolute;
+            border-left: 2px dashed #FF6B6B;
+            transform-origin: top left;
+        }
+        @media print {
+            .dark-background-wrapper {
+                background-color: #073B4C !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#073B4C] text-[#F0F4F8]">
+    <div class="dark-background-wrapper">
+        <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+            <header class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-black text-[#FFD166] mb-2">🥗 Claves para un Estilo de Vida Saludable</h1>
+                <p class="text-lg md:text-xl text-gray-400">Una guía visual para construir hábitos que transformen tu bienestar.</p>
+            </header>
+
+            <main>
+                <section id="energia" class="bg-[#118AB2] rounded-2xl shadow-lg p-6 md:p-8 mb-10">
+                    <h2 class="text-3xl font-bold text-[#F0F4F8] mb-4 text-center">1. Tu Motor Diario: Energía y Nutrición</h2>
+                    <p class="text-center text-gray-200 max-w-3xl mx-auto mb-8">
+                        Para lograr tus metas, es fundamental entender cuánta energía necesita tu cuerpo y de dónde obtenerla. Tus necesidades calóricas diarias son una combinación de tu metabolismo en reposo y tu nivel de actividad.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold mb-3 text-center">Factores Clave del Gasto Energético</h3>
+                            <p class="text-gray-300 mb-4 text-center">
+                                Tu Tasa Metabólica Basal (TMB) es única. Depende de múltiples variables como la edad, el sexo, la altura y el peso. A esto se suma la energía que gastas con la actividad física. Este gráfico ilustra cómo diferentes perfiles pueden tener distintas necesidades.
+                            </p>
+                            <div class="chart-container">
+                                <canvas id="necesidadesEnergeticasChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold mb-3 text-center">¿De Dónde Vienen las Calorías?</h3>
+                            <p class="text-gray-300 mb-4 text-center">
+                                Los macronutrientes son la fuente de energía. Una dieta balanceada suele distribuir el aporte calórico como se muestra. Recuerda que las grasas aportan más del doble de calorías por gramo que los carbohidratos y las proteínas.
+                            </p>
+                            <div class="chart-container">
+                                <canvas id="aportesCaloricosChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="ergonomia" class="bg-[#118AB2] rounded-2xl shadow-lg p-6 md:p-8 mb-10">
+                    <h2 class="text-3xl font-bold text-[#F0F4F8] mb-4 text-center">2. Bienestar en el Trabajo: Tu Puesto Ergonómico</h2>
+                    <p class="text-center text-gray-200 max-w-3xl mx-auto mb-8">
+                       Pasamos muchas horas en nuestro puesto de trabajo. Un diseño ergonómico no es un lujo, es una necesidad para prevenir dolores, lesiones y fatiga, adaptándose a tu contextura para maximizar la comodidad y productividad.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="ergonomic-diagram h-96 bg-gray-800 rounded-lg flex items-center justify-center p-4">
+                            <div class="text-8xl">🧑‍💻</div>
+                            <div class="ergonomic-point" style="top: 10%; left: 60%;">Pantalla a la altura de los ojos</div>
+                            <div class="ergonomic-line" style="top: 15%; left: 60%; height: 10%;"></div>
+
+                            <div class="ergonomic-point" style="top: 45%; left: 0%;">Espalda recta con apoyo lumbar</div>
+                            <div class="ergonomic-line" style="top: 50%; left: 20%; height: 10%; transform: rotate(90deg);"></div>
+
+                            <div class="ergonomic-point" style="top: 55%; left: 70%;">Brazos a 90°</div>
+                            <div class="ergonomic-line" style="top: 55%; left: 70%; height: 15%; transform: rotate(-45deg);"></div>
+                            
+                            <div class="ergonomic-point" style="bottom: 10%; left: 55%;">Pies apoyados en el suelo</div>
+                            <div class="ergonomic-line" style="bottom: 15%; left: 55%; height: 20%;"></div>
+                        </div>
+                         <div>
+                            <ul class="space-y-4 text-lg text-gray-100">
+                                <li class="flex items-start">
+                                    <span class="text-2xl text-[#06D6A0] mr-3">✓</span>
+                                    <div><strong class="font-bold">Silla Ajustable:</strong> La base de todo. Busca soporte lumbar y ajuste de altura para que tus pies descansen planos y tus rodillas formen un ángulo de 90 grados.</div>
+                                </li>
+                                 <li class="flex items-start">
+                                    <span class="text-2xl text-[#06D6A0] mr-3">✓</span>
+                                    <div><strong class="font-bold">Altura del Monitor:</strong> El borde superior de la pantalla debe estar al nivel de tus ojos o ligeramente por debajo, a una distancia de un brazo extendido (45-70 cm).</div>
+                                </li>
+                                 <li class="flex items-start">
+                                    <span class="text-2xl text-[#06D6A0] mr-3">✓</span>
+                                    <div><strong class="font-bold">Teclado y Ratón:</strong> Deben estar al mismo nivel, permitiendo que tus codos formen un ángulo de 90 grados y tus muñecas permanezcan rectas para evitar tensión.</div>
+                                </li>
+                                 <li class="flex items-start">
+                                    <span class="text-2xl text-[#06D6A0] mr-3">✓</span>
+                                    <div><strong class="font-bold">Iluminación Adecuada:</strong> Utiliza luz natural siempre que sea posible y evita reflejos en la pantalla que puedan forzar tu vista.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="otros-factores" class="mb-6">
+                    <h2 class="text-3xl font-bold text-[#F0F4F8] mb-4 text-center">3. Pilares del Bienestar Integral</h2>
+                     <p class="text-center text-gray-200 max-w-3xl mx-auto mb-8">
+                       Un estilo de vida saludable es un ecosistema equilibrado. Más allá de la dieta y el ejercicio, estos cuatro pilares son esenciales para tu salud física y mental a largo plazo.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-[#118AB2] rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                            <div class="text-6xl mb-4">🧘</div>
+                            <h3 class="text-xl font-bold mb-2">Salud Mental</h3>
+                            <p class="text-gray-300">Dedica tiempo a gestionar el estrés. Actividades como la meditación, hobbies o simplemente desconectar son cruciales para recargar tu mente.</p>
+                        </div>
+                        <div class="bg-[#118AB2] rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                            <div class="text-6xl mb-4">💧</div>
+                            <h3 class="text-xl font-bold mb-2">Hidratación</h3>
+                            <p class="text-gray-300">El agua es vital. Una buena hidratación mejora tu energía, concentración y estado de ánimo. ¡No esperes a tener sed para beber!</p>
+                        </div>
+                        <div class="bg-[#118AB2] rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                            <div class="text-6xl mb-4">😴</div>
+                            <h3 class="text-xl font-bold mb-2">Descanso Reparador</h3>
+                            <p class="text-gray-300">Dormir entre 7 y 9 horas permite que tu cuerpo y mente se recuperen. La calidad del sueño es tan importante como la cantidad.</p>
+                        </div>
+                        <div class="bg-[#118AB2] rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                            <div class="text-6xl mb-4">🤝</div>
+                            <h3 class="text-xl font-bold mb-2">Conexión Social</h3>
+                            <p class="text-gray-300">Mantener relaciones sanas y un sistema de apoyo fuerte es fundamental para la felicidad y el bienestar general.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            
+            <footer class="text-center mt-12 py-6 border-t border-[#06D6A0]">
+                <p class="text-gray-400">Construye un futuro más saludable, un hábito a la vez.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const wrapLabel = (label, maxLength = 16) => {
+                if (typeof label !== 'string' || label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const energeticPalette = ['#FF6B6B', '#FFD166', '#06D6A0', '#118AB2', '#073B4C'];
+            const textColor = '#F0F4F8';
+
+            const ctxNecesidades = document.getElementById('necesidadesEnergeticasChart').getContext('2d');
+            new Chart(ctxNecesidades, {
+                type: 'radar',
+                data: {
+                    labels: ['Edad (Juventud)', 'Sexo (Masculino)', 'Altura (Alta)', 'Peso (Alto)', 'Actividad Física (Alta)'],
+                    datasets: [{
+                        label: 'Mayor Necesidad Energética',
+                        data: [4, 5, 5, 5, 5],
+                        fill: true,
+                        backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                        borderColor: energeticPalette[0],
+                        pointBackgroundColor: energeticPalette[0],
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: energeticPalette[0]
+                    }, {
+                        label: 'Menor Necesidad Energética',
+                        data: [2, 2, 2, 2, 1],
+                        fill: true,
+                        backgroundColor: 'rgba(255, 209, 102, 0.2)',
+                        borderColor: energeticPalette[1],
+                        pointBackgroundColor: energeticPalette[1],
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: energeticPalette[1]
+                    }]
+                },
+                options: {
+                    ...tooltipTitleCallback,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(240, 244, 248, 0.2)' },
+                            grid: { color: 'rgba(240, 244, 248, 0.2)' },
+                            pointLabels: { font: { size: 12 }, color: textColor },
+                            ticks: {
+                                backdropColor: 'rgba(7, 59, 76, 0.1)',
+                                color: textColor,
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    elements: {
+                        line: {
+                            borderWidth: 3
+                        }
+                    },
+                     plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor,
+                            }
+                        },
+                        tooltip: {
+                            ...tooltipTitleCallback.plugins.tooltip,
+                            backgroundColor: 'rgba(7, 59, 76, 0.8)',
+                            titleColor: '#FFD166',
+                            bodyColor: '#F0F4F8',
+                        }
+                    }
+                }
+            });
+
+            const ctxAportes = document.getElementById('aportesCaloricosChart').getContext('2d');
+            new Chart(ctxAportes, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Carbohidratos (4 cal/g)', 'Proteínas (4 cal/g)', 'Grasas (9 cal/g)'],
+                    datasets: [{
+                        label: 'Aporte Calórico',
+                        data: [50, 20, 30],
+                        backgroundColor: [
+                           energeticPalette[1],
+                           energeticPalette[2],
+                           energeticPalette[0]
+                        ],
+                        borderColor: energeticPalette[4],
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    ...tooltipTitleCallback,
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    cutout: '60%',
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: textColor,
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: {
+                            ...tooltipTitleCallback.plugins.tooltip,
+                            backgroundColor: 'rgba(7, 59, 76, 0.8)',
+                            titleColor: '#FFD166',
+                            bodyColor: '#F0F4F8',
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
